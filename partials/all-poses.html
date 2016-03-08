@@ -1,0 +1,58 @@
+<section class='pose-view container-fluid' ng-controller="PoseListCtrl">
+	
+	<div class='pose-list-view panel panel-default' >
+		<div class='panel-heading'><h1 class='panel-title'>Pose Listing</h1></div>
+		<div class='panel-body'>
+			<p>
+				Poses are listed in the order that they appear in Light On Yoga.
+			</p>
+			<ul class='list-inline'>
+				<li ng-repeat="tag in tags">
+					<a href="#" ng-click="toggleTag(tag.ID)" data-tagID="{{tag.ID}}" class='btn btn-primary' data-toggle-class='active' >{{tag.tagName}}</a>
+				</li>
+			</ul>
+		<!--<div class='row'>
+		
+			<div class='col-sm-1'>
+				#
+			</div>
+			<div class='col-sm-5'>
+				Image
+			</div>
+			<div class='col-sm-6'>
+				
+			</div>
+		</div>-->
+
+			<div class="row pose-listing" ng-repeat="pose in poseList | filter: filterList" >
+				<div class='col-sm-1'>
+					{{pose.loy_order}}
+				</div>
+				<div class="col-sm-4 text-center">
+					<img src="{{pose.image.url}}" style="max-width: 200px;" class='img-responsive'/>
+				</div>
+				<div class='col-sm-7'>
+					<div>
+						<label>Sanskrit Name: </label> <a href="/yoga-app/poses/{{pose.sanskritName}}">{{pose.sanskritName}}</a>
+					</div>
+					<div>
+						<label>English Name: </label> {{pose.englishName}}
+					</div>
+					<div>
+						<label>Tags: </label>
+						<span ng-repeat="poseTag in pose.tags track by $index">
+							<a href="#{{poseTag.ID}}">{{poseTag.tagName}}</a>{{$last ? '' : ', '}}
+						</span>
+					</div>
+					<div>
+						<a href="/poses/{{pose.sanskritName}}" class='btn btn-default'>More Info</a>
+				</div>
+			</div>
+		</div>
+		<!--<poseListView></poseListView>-->
+
+	</div>
+</section>
+
+<script type="text/ng-template" id="pose-listing.tpl">
+</script>

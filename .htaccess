@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+    Options +FollowSymlinks
+    RewriteEngine On
+
+    #
+    #RewriteRule ^/admin/? index.php?admin=true [L]
+    RewriteBase /yoga-app/
+
+    #RewriteCond %{REQUEST_FILENAME} !-f
+    #RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !.*\.(css|js|html|png|jpg|jpeg|gif|txt)
+    RewriteRule ^api/([^/\.]+)/?$ api/index.php?method=$1 [QSA,L]
+    RewriteRule ^api/([^/\.]+)/([^/\.]+)/?$ api/index.php?method=$1&data1=$2 [QSA,L]
+    RewriteRule ^([^/\.]+)/?$ index.php?content=$1 [QSA,L]
+	RewriteRule ^([^/\.]+)/([^/\.]+)/?$ index.php?content=$1&data1=$2 [QSA,L]
+
+
+</IfModule>

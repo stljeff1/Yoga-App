@@ -1,0 +1,57 @@
+<div class="single-pose-view container-fluid" ng-controller="SinglePoseCtrl">
+	{{poseName}}
+	<ol class='breadcrumb'>
+		<li><a href="/yoga-app/poses">Poses</a></li>
+		<li class='active'>{{pose.sanskritName}}</li>
+	</ol>
+		<h1>{{pose.sanskritName}}</h1>
+		<div style='display: none;'>
+			<label for="tag">Tags</label>
+			<tags-input ng-model="myTags" display-property='tagName'>
+				<auto-complete source="loadTags($query)"></auto-complete>
+			</tags-input>
+			<a href="#" ng-click="saveTags()" class='btn btn-primary'>Save Tags</a>
+
+
+		</div>
+	<section class='pose-view'>
+		<div class="panel panel-default">
+  			<div class="panel-body">
+				<div class='row'>
+					<div class='col-xs-6'>
+						<a ng-show="pose.prev" href='/yoga-app/poses/{{pose.prev[0]}}'><i class='glyphicon glyphicon-chevron-left'></i> {{pose.prev[0]}}</a>
+					</div>
+					<div class='col-xs-6 text-right'>
+						<a ng-show="pose.next" href='/yoga-app/poses/{{pose.next[0]}}'>{{pose.next[0]}}<i class='glyphicon glyphicon-chevron-right'></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<div class='container-fluid'>
+					<div class='pose-data pose-panel panel'>
+						<p>English: {{pose.englishName}}</p>
+						<p>Categories: 
+							<span ng-repeat="cat in pose.tags">
+								<a href="#{{cat.ID}}">{{cat.tagName}}</a>, 
+							</span>
+						</p>
+						<div class="yoga-video-list">
+
+						</div>
+						
+						<div class='yoga-link-feed'></div>
+						<div class='yoga-insta-feed' tag="{{pose.sanskritName}}"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<!--<img src="{{pose.image.url}}" style="max-width: 200px;"/>-->
+				<div class='pose-media pose-panel panel'>
+					<div class="yoga-media-viewer"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

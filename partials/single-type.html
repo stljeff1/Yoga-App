@@ -1,0 +1,22 @@
+<div ng-controller='SinglePoseCtrl'>
+	<ol class='breadcrumb'>
+		<li><a href="/yoga-app/types">Types</a></li>
+		<li class='active'>{{type.name}}</li>
+	</ol>
+	<section class='pose-view'>
+		<h1>{{pose.sanskritName}}</h1>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<p>English: {{pose.englishName}}</p>
+				<p>Categories: 
+					<span ng-repeat="cat in pose.categories">
+						<a href="#{{cat.ID}}">{{cat.category_name}}</a>
+					</span>
+				</p>
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<img src="{{pose.image.url}}" style="max-width: 200px;"/>
+			</div>
+		</div>
+	</section>
+</div>

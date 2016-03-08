@@ -1,0 +1,43 @@
+<section class='pose-view' ng-controller="PoseListCtrl">
+	<h1>Types of Poses</h1>
+	{{status}}
+
+	<ul>
+		<li ng-repeat="type in types"><a href="/yoga-app/types/{{type.slug}}"
+
+	<div class='pose-list-view'>
+		<div class='row'>
+			<div class='col-sm-4'>
+				{{sanskri_name}}
+			</div>
+			<div class='col-sm-4'>
+				{{english_name}}
+			</div>
+			<div class='col-sm-4'>
+				{{categories}}
+			</div>
+		</div>
+
+	<div class="row" ng-repeat="pose in poseList" >
+		<div class="col-sm-3">
+			<img src="{{pose.image.url}}" style="max-width: 200px;"/>
+		</div>
+		<div class='col-sm-3'>
+			<a href="/yoga-app/poses/{{pose.sanskritName}}">{{pose.sanskritName}}</a>
+		</div>
+		<div class='col-sm-3'>
+			{{pose.englishName}}
+		</div>
+		<div class='col-sm-3'>
+			<span ng-repeat="cat in pose.categories track by $index">
+				<a href="#{{cat.ID}}">{{cat.category_name}}</a>
+			</span>
+		</div>
+	</div>
+		<!--<poseListView></poseListView>-->
+
+	</div>
+</section>
+
+<script type="text/ng-template" id="pose-listing.tpl">
+</script>
