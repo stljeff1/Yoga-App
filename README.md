@@ -1,9 +1,9 @@
-AngularJS Tutorial 1
+Jeff's Yoga App
 ====================
 
-author: [Nick Kaye](http://www.nickkaye.com)
+author: [Jeff Wilkerson](http://www.jeffwilkerson.net)
 
-**NOTE:  We’re referencing all of our vendor dependencies (e.g. Bootstrap, jQuery, Angular) at outside URLs.   Therefore, it is necessary to host our site while we’re working on it.  Be sure we are viewing it in a browser with http:// -- not file://**
+Project to learn AngularJS. This project intends to present yoga poses classically (As shown in Light on Yoga by BKS Iyengar), then aim to show instruction and alternative forms of the poses by displaying relevant Youtubes and Instagrams
 
-View the [live demo](http://airpair.github.io/demos/2014/09/T0021-airpair-angularjs-tutorial).
+View the [live demo](http://propifyyourlife.jeffwilkerson.net/).
 "# Yoga-App" 
