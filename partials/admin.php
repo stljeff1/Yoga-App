@@ -85,3 +85,6 @@
 </section>
 
 <pre style='display: none;'><?php print_r($_SERVER); ?></pre>
+
+<script src='./js/file-upload.js'></script>
+<script src='./js/admin.js'></script>

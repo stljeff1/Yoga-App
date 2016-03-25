@@ -134,7 +134,6 @@ a:hover { color: #e59400;}
     margin: 0 auto;
 }
 .pose-view > .panel {
-    font-size: 1.4em;
     border-bottom: 2px solid #333;
 }
 .pose-list-view {
@@ -142,17 +141,35 @@ a:hover { color: #e59400;}
     margin: 0 auto;
 }
 .pose-list-view .pose-listing {
-    margin-bottom: 8px;
+    margin: 8px 0;
     xmax-height: 100px;
     overflow: hidden;
     -webkit-transition: background-color .5s;
     transition: background-color .5s;
+    border-bottom:  2px solid #fff;
 }
-.pose-list-view .pose-listing.hover, .pose-list-view .pose-listing:hover,  {
+.pose-list-view .pose-listing.hover, .pose-list-view .pose-listing:hover  {
     background-color: #e0e0e0;
-    xoverflow: visible;
-    max-height: none;
+    border-bottom:  2px solid #808080;
+    cursor: pointer;
 
+}
+
+.pose-list-view .filter-panel .panel-heading.filtering { font-weight: bold; }
+
+.pose-list-view .affix-panel.affix {
+    top:  15px;
+}
+
+.pose-list-view .carousel {
+    height:  250px;
+}
+.pose-list-view .carousel .carousel-indicators {display: none;}
+.pose-list-view .carousel .carousel-caption {
+    padding: 0;
+}
+.pose-list-view .carousel img.img-responsive {
+    margin:  0 auto;
 }
 
 .pose-panel {

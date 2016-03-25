@@ -39,11 +39,13 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/sandstone-bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-switch.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Our Website CSS Styles -->
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/block-grid.css">
+    <link rel="stylesheet" href="./css/bootstrap-switch.min.css">
     <link rel='stylesheet' href='js/tags-input/ng-tags-input.css'/>
 </head>
 <body ng-app="YogaPoseApp">
@@ -67,13 +69,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button> -->
-      <a class="navbar-brand" href="/">#Propifyyourlife</a>
+      <a class="navbar-brand" href="/yoga-app">#Propifyyourlife</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/poses">Poses <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="/yoga-app/">Poses <span class="sr-only">(current)</span></a></li>
         
       </ul><!--
       <form class="navbar-form navbar-left" role="search">
@@ -111,11 +113,13 @@
 <!-- Vendor: Javascripts -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
 <!-- Vendor: Angular, followed by our custom Javascripts -->
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-route.min.js"></script>
+
+
 <script src='js/tags-input/ng-tags-input.js'></script>
+
 
 <!-- Our Website Javascripts -->
 <script src="./js/date.js"></script>

@@ -1,92 +1,117 @@
+<section class='pose-view container-fluid'>
+	
+	<h2>This Website...</h2>
+	<p class='lead'><strong>This website</strong>, first and foremost is a demonstration and experiementation in using AngularJS to build a web application.</p>
+	<p>I am a student of Iyengar Yoga and web development. While considering how I could advance my knowledge and experience in both of these subjects, I decided to combine these two passions into a single effort by building myself an AngularJS application about yoga.</p>
+	<p>Links: About Iyengar Yoga. Lets get Technical.</p>
 
-<div class="section">
+	<p>Below is a small but growing list of yoga poses. Each pose has its own page, and on each pose page, shows various web resources related to the pose. Building this small application gave me an opportunity to experiement with Views, Routes, and Services. </p>
+	<p class='lead'>If you are curious in my technical abilities as a Front-End Developer in <strong>Portland, Oregon</strong>, check out the documentation and source code.</p>
 
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>#PropifyYourLife</h1>
-                <p class='lead'>I am a student of Iyengar Yoga and web development. This website is an ongoing project, serving three functions: </p>
-                <ol>
-                    <li>To give myself an opportunuity to develop a fully functioning web application from scratch using  the AngularJS Framework.</li>
-                    <li>To systemtize my own learning of the asanas (poses) and the subject of yoga.</li>
-                    <li>To attempt document the multitude of ways of performing an asana, as well as all the effects they produce on the individual</li>
-                </ol>
-                <p>I am heavily influenced by Iyengar Yoga because I have benefitted greatly from the method's systematic approach to learning yoga. Iyengar yoga is about blah blah blah.<br/><br/>
-
-                Aside from my technical reasons to build this site, I have started this project to further my own understanding of yoga. This site is not meant to be anything more than that.</p>
-                <p><a href="./about">More About this website</a></p>
-            </div>
+    <div class='row' style='display: none;'>
+        <div class='col-xs-12 col-md-8'>
+        	<p>Iyengar Yoga is a unique system/methodology of yoga "characterized by main things": <a href='https://www.yogaglo.com/preview/class/3565' target='_blank'>Timing, Sequencing, and Alignment</a>. The goal of yoga, esssentially, is to access a state of union between and mind. Much like Web Frameworks like Bootstrap and AngularJS, which aim to systemize the development of web applications, the Iyengar Yoga methodology serves as a framework to systemtize the practice of Yoga and self realization.</p>
+        	<p></p>
         </div>
-        <!-- /.row -->
+        
+        <div class='col-xs-12 col-md-4'>
 
-    </div>
-    <!-- /.container -->
-
-</div>
-<!-- /.section -->
-
-<div class="section-colored text-center">
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Invocation to Patanjali</h2>
-                <audio controls="controls">
-                  Your browser does not support the <code>audio</code> element.<br/>
-                  Download the file <a href='./bksinvoc.wav'>here</a>.
-                  <source src="bksinvoc.wav" type="audio/wav">
-                </audio>
-                <p>Audio taken from <a href="http://www.yogagroup.org/patanjal.html" target="_blank">http://www.yogagroup.org/patanjal.html</a></p>
-                <div class='row'>
-                    <div class='col-xs-12 col-md-6'>
-                        <h4>English</h4>
-                        <blockquote>
-Yogena cittasya padena vacam<br/>
-Malam sarirasyaca vaidyakena<br/>
-Yopakarottam prvaram muninam<br>
-Patanjalim pranjaliranato’smi<br/><br/>
-Abahu purusakaram<br/>
-Sankha cakrasi dharinam<br/>
-Sahasra sirasam svetam<br/>
-Pranamami Patanjalim
-                        </blockquote>
-                    </div>
-                    <div class='col-xs-12 col-md-6'>
-                        <h4>Sanskrit</h4>
-                        <blockquote>
-                            Let us bow before the noblest of sages, Patanjali, who gave yoga for serenity and sanctity of mind, grammar for clarity and purity of speech, and medicine for perfection of health.<br/><br/>
-                            Let us prostrate before Patanjali, an incarnation of Adisesa, whose upper body has a human form, whose arms hold a conch and a disc, and who is crowned by a thousand-headed cobra.
-                        </blockquote>
-                    </div>
-                </div>
-                <p><a href="http://www.iyengaryogaamsterdam.com/?p=909" target="_blank">Dr. Geeta Iyengar on the Invocation to Patanjali</a></p>
-            </div>
         </div>
-        <!-- /.row -->
+	</div>
 
-    </div>
-    <!-- /.container -->
+	<div class='pose-list-view panel panel-default' ng-controller="PoseListCtrl" >
+		<div class='panel-heading'><h1 class='panel-title'>Pose Listing</h1></div>
+		<div class='panel-body'>
+			<p>
+				Poses are listed in the order that they appear in Light On Yoga.
+			</p>
 
-</div>
-<!-- /.section-colored -->
+			<div class='row'>
+				<div class='col-sm-12 col-md-8'>
+					<div class='row'>
+						<div class='col-xs-1'>
+						</div>
+						<div class='col-xs-4'>
+							<strong>Sanskrit Name</strong>
+						</div>
+						<div class='col-xs-4'>
+							<strong>English Name</strong>
+						</div>
+						<div class='col-xs-3'>
+							<strong>Tags</strong>
+						</div>
+					</div>
+					<div class="row pose-listing" ng-repeat="pose in poseList | filter: filterList" data-image="{{pose.image.url}}" data-path='/poses/{{pose.sanskritName}}' >
+						<div class='col-xs-1'>
+							{{pose.loy_order}}
+						</div>
 
-<div class="section">
+						<div class='col-xs-4'>
+							<a href="/{{pose.sanskritName}}">{{pose.sanskritName}}</a>
 
-    <div class="container">
+						</div>
+						<div class='col-xs-4'>
+							{{pose.englishName}}
+						</div>
+						<div class='col-xs-3'>
+							
+								<span ng-repeat="poseTag in pose.tags track by $index">
+									<a href="#{{poseTag.ID}}">{{poseTag.tagName}}</a>{{$last ? '' : ', '}}
+								</span>
+						</div>
+					</div>
 
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h3><a href="./poses" class="btn btn-primary">Go to List of Poses</a></h3>
-                
-            </div>
-        </div>
-        <!-- /.row -->
+				</div>
+				<div class='col-md-4 hidden-xs hidden-sm'>
+					<div class='affix-panel'>
+						<div class='pose-image-viewport' data-spy="affix" data-offset-top="260" data-offset-bottom="200">
+							<img src='{{activePoseImg}}' class='img-responsive'/>
+						</div>
+						<div class='panel panel-default filter-panel'>
+							<div class='panel-heading' ng-class="{'filtering': filtering}" ng-click="filtering = !filtering">Filter Poses</div>
+							<div class='panel-body' ng-show="filtering">
+								<div class='filter-item clearfix' ng-repeat="tag in tags">
+									<label>{{tag.tagName}}</label>
+									<input type='checkbox' bootstrap-switch class='toggle-tag bs-switch bootstrap-switch bootstrap-switch-mini' xxng-click="toggleTag(tag.ID)" data-tagID="{{tag.ID}}" data-tag-name="{{tag.tagName}}" ng-model='tag.filterOn'/> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!--<div class='row'>
+		
+			<div class='col-sm-1'>
+				#
+			</div>
+			<div class='col-sm-5'>
+				Image
+			</div>
+			<div class='col-sm-6'>
+				
+			</div>
+		</div>-->
 
-    </div>
-    <!-- /.container -->
+			<!--<div id="PoseImgCarousel">
 
-</div>
-<!-- /.section -->
+				<uib-carousel active="active" interval="2000" no-wrap="false">
+					<uib-slide ng-repeat="pose in poseList track by pose.loy_order" index='pose.loy_order'>
+						<div><img src="{{pose.image.url}}" style="max-width: 200px;" class='img-responsive'/></div>
+						<div class='carousel-caption'>
+							<h4>{{pose.sanskritName}}</h4>
+						</div>
+					</uib-slide>
+				</uib-carousel>
+			</div>-->
 
+		<!--<poseListView></poseListView>-->
+
+	</div>
+</section>
+
+<script type="text/ng-template" id="pose-listing.tpl">
+</script>
+
+<script src="./js/bootstrap-switch.js"></script>
+<script src="./js/ui-bootstrap-tpls-1.2.4.js"></script>
+<script src='./js/pose-list-init.js'></script>
