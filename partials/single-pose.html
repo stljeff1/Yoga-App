@@ -1,7 +1,7 @@
-<div class="single-pose-view container-fluid" ng-controller="SinglePoseCtrl">
+<div class="single-pose-view container-fluid">
 	{{poseName}}
 	<ol class='breadcrumb'>
-		<li><a href="/yoga-app/">Poses</a></li>
+		<li><a href="/poses/">Poses</a></li>
 		<li class='active'>{{pose.sanskritName}}</li>
 	</ol>
 		<h1>{{pose.sanskritName}}</h1>
@@ -19,10 +19,10 @@
   			<div class="panel-body">
 				<div class='row'>
 					<div class='col-xs-6'>
-						<a ng-show="pose.prev" href='/yoga-app/poses/{{pose.prev[0]}}'><i class='glyphicon glyphicon-chevron-left'></i> {{pose.prev[0]}}</a>
+						<a ng-show="pose.prev" href='/poses/{{pose.prev[0]}}'><i class='glyphicon glyphicon-chevron-left'></i> {{pose.prev[0]}}</a>
 					</div>
 					<div class='col-xs-6 text-right'>
-						<a ng-show="pose.next" href='/yoga-app/poses/{{pose.next[0]}}'>{{pose.next[0]}}<i class='glyphicon glyphicon-chevron-right'></i></a>
+						<a ng-show="pose.next" href='/poses/{{pose.next[0]}}'>{{pose.next[0]}}<i class='glyphicon glyphicon-chevron-right'></i></a>
 					</div>
 				</div>
 			</div>
@@ -34,7 +34,7 @@
 						<p>English: {{pose.englishName}}</p>
 						<p>Categories: 
 							<span ng-repeat="cat in pose.tags">
-								<a href="#{{cat.ID}}">{{cat.tagName}}</a>, 
+								<strong>{{cat.tagName}}</strong>{{$last ? '' : ', '}} 
 							</span>
 						</p>
 						<div class="yoga-video-list">

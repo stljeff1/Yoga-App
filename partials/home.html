@@ -1,12 +1,18 @@
-<section class='pose-view container-fluid'>
+<section class='xpose-view container-fluid front-page'>
 	
 	<h2>This Website...</h2>
-	<p class='lead'><strong>This website</strong>, first and foremost is a demonstration and experiementation in using AngularJS to build a web application.</p>
+	<p class='lead'><strong>This website</strong>, first and foremost is a <a href='http://blog.jeffwilkerson.net/propifyyourlife-documentation/'>demonstration and experiement</a> in using AngularJS to build a web application.</p>
+	<p class='text-center'><a href='/poses' class='btn btn-success btn-lg'>See the Web Application</a></p>
+	<p><strong>Essentially</strong> the App is a small but growing list of yoga poses. Each pose has its own page, and on each pose page, shows various web resources related to the pose. Building this small application gave me an opportunity to experiement with Views, Routes, and Services. </p>
+	
 	<p>I am a student of Iyengar Yoga and web development. While considering how I could advance my knowledge and experience in both of these subjects, I decided to combine these two passions into a single effort by building myself an AngularJS application about yoga.</p>
-	<p>Links: About Iyengar Yoga. Lets get Technical.</p>
+	<p class='text-center'>See Also: <br/> <a href='https://www.yogaglo.com/preview/class/3565' class='btn btn-default' target='_blank'>About Iyengar Yoga</a> 
+		<a href='http://blog.jeffwilkerson.net/propifyyourlife-documentation/' class='btn btn-default '>Project's Documentation</a>
+		<a href='https://github.com/stljeff1/Yoga-App' target='_blank' class='btn btn-info '>View Project on GitHub</a>
+	</p>
 
-	<p>Below is a small but growing list of yoga poses. Each pose has its own page, and on each pose page, shows various web resources related to the pose. Building this small application gave me an opportunity to experiement with Views, Routes, and Services. </p>
-	<p class='lead'>If you are curious in my technical abilities as a Front-End Developer in <strong>Portland, Oregon</strong>, check out the documentation and source code.</p>
+	
+	<p class='lead'>If you are curious in my <a href='http://www.jeffwilkerson.net/#skills'>technical abilities</a> as a <a href='http://jeffwilkerson.net'>Front-End Developer</a> in <strong>Portland, Oregon</strong>, check out the <a href='http://blog.jeffwilkerson.net/propifyyourlife-documentation/'>documentation</a> and <a href='https://github.com/stljeff1/Yoga-App' target='_blank'>source code</a>.</p>
 
     <div class='row' style='display: none;'>
         <div class='col-xs-12 col-md-8'>
@@ -18,100 +24,4 @@
 
         </div>
 	</div>
-
-	<div class='pose-list-view panel panel-default' ng-controller="PoseListCtrl" >
-		<div class='panel-heading'><h1 class='panel-title'>Pose Listing</h1></div>
-		<div class='panel-body'>
-			<p>
-				Poses are listed in the order that they appear in Light On Yoga.
-			</p>
-
-			<div class='row'>
-				<div class='col-sm-12 col-md-8'>
-					<div class='row'>
-						<div class='col-xs-1'>
-						</div>
-						<div class='col-xs-4'>
-							<strong>Sanskrit Name</strong>
-						</div>
-						<div class='col-xs-4'>
-							<strong>English Name</strong>
-						</div>
-						<div class='col-xs-3'>
-							<strong>Tags</strong>
-						</div>
-					</div>
-					<div class="row pose-listing" ng-repeat="pose in poseList | filter: filterList" data-image="{{pose.image.url}}" data-path='/poses/{{pose.sanskritName}}' >
-						<div class='col-xs-1'>
-							{{pose.loy_order}}
-						</div>
-
-						<div class='col-xs-4'>
-							<a href="/{{pose.sanskritName}}">{{pose.sanskritName}}</a>
-
-						</div>
-						<div class='col-xs-4'>
-							{{pose.englishName}}
-						</div>
-						<div class='col-xs-3'>
-							
-								<span ng-repeat="poseTag in pose.tags track by $index">
-									<a href="#{{poseTag.ID}}">{{poseTag.tagName}}</a>{{$last ? '' : ', '}}
-								</span>
-						</div>
-					</div>
-
-				</div>
-				<div class='col-md-4 hidden-xs hidden-sm'>
-					<div class='affix-panel'>
-						<div class='pose-image-viewport' data-spy="affix" data-offset-top="260" data-offset-bottom="200">
-							<img src='{{activePoseImg}}' class='img-responsive'/>
-						</div>
-						<div class='panel panel-default filter-panel'>
-							<div class='panel-heading' ng-class="{'filtering': filtering}" ng-click="filtering = !filtering">Filter Poses</div>
-							<div class='panel-body' ng-show="filtering">
-								<div class='filter-item clearfix' ng-repeat="tag in tags">
-									<label>{{tag.tagName}}</label>
-									<input type='checkbox' bootstrap-switch class='toggle-tag bs-switch bootstrap-switch bootstrap-switch-mini' xxng-click="toggleTag(tag.ID)" data-tagID="{{tag.ID}}" data-tag-name="{{tag.tagName}}" ng-model='tag.filterOn'/> 
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		<!--<div class='row'>
-		
-			<div class='col-sm-1'>
-				#
-			</div>
-			<div class='col-sm-5'>
-				Image
-			</div>
-			<div class='col-sm-6'>
-				
-			</div>
-		</div>-->
-
-			<!--<div id="PoseImgCarousel">
-
-				<uib-carousel active="active" interval="2000" no-wrap="false">
-					<uib-slide ng-repeat="pose in poseList track by pose.loy_order" index='pose.loy_order'>
-						<div><img src="{{pose.image.url}}" style="max-width: 200px;" class='img-responsive'/></div>
-						<div class='carousel-caption'>
-							<h4>{{pose.sanskritName}}</h4>
-						</div>
-					</uib-slide>
-				</uib-carousel>
-			</div>-->
-
-		<!--<poseListView></poseListView>-->
-
-	</div>
 </section>
-
-<script type="text/ng-template" id="pose-listing.tpl">
-</script>
-
-<script src="./js/bootstrap-switch.js"></script>
-<script src="./js/ui-bootstrap-tpls-1.2.4.js"></script>
-<script src='./js/pose-list-init.js'></script>

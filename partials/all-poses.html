@@ -1,6 +1,6 @@
+
 <section class='pose-view container-fluid'>
-	
-	<div class='pose-list-view panel panel-default' ng-controller="PoseListCtrl" >
+	<div class='pose-list-view panel panel-default'>
 		<div class='panel-heading'><h1 class='panel-title'>Pose Listing</h1></div>
 		<div class='panel-body'>
 			<p>
@@ -28,7 +28,7 @@
 						</div>
 
 						<div class='col-xs-4'>
-							<a href="/{{pose.sanskritName}}">{{pose.sanskritName}}</a>
+							<a href="/poses/{{pose.sanskritName}}">{{pose.sanskritName}}</a>
 
 						</div>
 						<div class='col-xs-4'>
@@ -37,7 +37,7 @@
 						<div class='col-xs-3'>
 							
 								<span ng-repeat="poseTag in pose.tags track by $index">
-									<a href="#{{poseTag.ID}}">{{poseTag.tagName}}</a>{{$last ? '' : ', '}}
+									{{poseTag.tagName}}{{$last ? '' : ', '}}
 								</span>
 						</div>
 					</div>
@@ -60,39 +60,11 @@
 					</div>
 				</div>
 			</div>
-		<!--<div class='row'>
-		
-			<div class='col-sm-1'>
-				#
-			</div>
-			<div class='col-sm-5'>
-				Image
-			</div>
-			<div class='col-sm-6'>
-				
-			</div>
-		</div>-->
-
-			<!--<div id="PoseImgCarousel">
-
-				<uib-carousel active="active" interval="2000" no-wrap="false">
-					<uib-slide ng-repeat="pose in poseList track by pose.loy_order" index='pose.loy_order'>
-						<div><img src="{{pose.image.url}}" style="max-width: 200px;" class='img-responsive'/></div>
-						<div class='carousel-caption'>
-							<h4>{{pose.sanskritName}}</h4>
-						</div>
-					</uib-slide>
-				</uib-carousel>
-			</div>-->
-
-		<!--<poseListView></poseListView>-->
 
 	</div>
 </section>
-
-<script type="text/ng-template" id="pose-listing.tpl">
-</script>
-
+<!--
 <script src="./js/bootstrap-switch.js"></script>
 <script src="./js/ui-bootstrap-tpls-1.2.4.js"></script>
 <script src='./js/pose-list-init.js'></script>
+-->

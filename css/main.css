@@ -17,7 +17,10 @@ body {
     padding-bottom: 20px;
 }
 body, p, .btn, label {
-    font-size: 16px;
+    font-size: 14px;
+}
+body, p, .btn, label, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #222;
 }
 
 .dropdown {
@@ -110,11 +113,6 @@ body, p, .btn, label {
     font-size: 8em;
 }
 
-/* Footer Styles */
-footer {
-    margin: 50px 0;
-}
-
 /* Responsive Styles */
 @media (max-width: 767px) {
 
@@ -124,20 +122,63 @@ footer {
     }
 }
 
-a, a:visited { color: #ffa500;}
-a:hover { color: #e59400;}
+a, a:visited { color: #d80003;}
+a:hover { color: #d80006;}
+
+a.btn, a.btn:visited { color: #f0f0f0; }
+a.btn:hover { color: #fff; }
+a.btn.btn-default, a.btn.btn-default:visited { color: #454545; }
+a.btn.btn-default:hover { color: #000; }
 
 
+.navbar-default, footer {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0b1b33+0,030e1e+100 */
+background-image: none;
+background: #0b1b33; /* Old browsers */
+background: -moz-linear-gradient(top,  #0b1b33 0%, #030e1e 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #0b1b33 0%,#030e1e 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #0b1b33 0%,#030e1e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
+    border: 0;
+    border-bottom: 1px solid #d80003;
+    margin: 0 15px;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: #000133;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #d0d0d0;
+}
 .body-container {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+footer {
+    border-radius: 4px;
+    min-height: 60px;
+    padding: 15px;
+}
+footer, footer p{
+    color: #fff;
+}
+
+/*************************************************************************/
+
+.front-page p, .frontg-page .btn, .frontg-page label {
+    font-size: 17px;
+}
+.front-page p.lead {
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+
+
 .pose-view > .panel {
     border-bottom: 2px solid #333;
 }
 .pose-list-view {
-    max-width: 940px;
     margin: 0 auto;
 }
 .pose-list-view .pose-listing {
@@ -193,10 +234,10 @@ a:hover { color: #e59400;}
     cursor: pointer;
 }
 .yoga-insta-feed img {
-    border: 2px solid #93c54b;
+    border: 2px solid #d80003;
 }
 .yoga-insta-feed img:hover {
-    border-color: #79a736;
+    border-color: #d80006;
     cursor: pointer;
 }
 .link-asset.media img {
